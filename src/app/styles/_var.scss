@@ -1,0 +1,379 @@
+$white: white;
+$black: #16041E;
+$dark-1:#16041E;
+$dark:#38363A;
+
+
+$salmon: #F1DDCC;
+$red: #FB3449;
+$orange:#FF8818;
+$yellow:#FFD600;
+$purple:#6E47A7;
+$lav:#F1EDF7;
+
+
+$green:#13af28;
+$aqua:#23FACF;
+$pink:#F9F4FA;
+$blue: #4D61AA;
+$grey: #F0F2F1;
+
+
+$text:#888888;
+$gray:#C8CCD7;
+$lite: #E6E8EE;
+
+
+$nav-a: $black;
+$nav-fs:13px;
+
+
+$btn: linear-gradient(115.31deg, #FF8818 -28.13%, #FFCF18 171.11%);
+
+:root{
+  --white:white;
+  --black:#1F303E;
+  --text:#658499;
+  --btn: #B3FCFF;
+  --btn-color: #1F303E;
+  --hbg: #83fbff;
+  --lite:#F2F7F7;
+}
+
+$textColours: (
+    "dark": $dark,
+    "text": $text,
+    "lite": $lite,
+    "black": $black,
+    "blue": $blue,
+    "red": $red,
+    "orange": $orange,
+    "purple": $purple,
+);
+
+@each $textColour, $i in $textColours {
+  .text-#{$textColour} {
+        color: $i !important;
+    }	
+}
+
+$bgColours: (
+    "blue": $blue,
+    "black": $black,
+);
+
+@each $bgColour, $i in $bgColours {
+  .bg-#{$bgColour} {
+        background-color: $i !important;
+    }	
+}
+
+$border :  solid #D3D7E2;
+$trans:  cubic-bezier(0, 0, 0.2, 1);
+
+
+
+@mixin blank($color:$dark){
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 12px;
+    line-height: 20px;
+    color: $color;
+    font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    box-sizing: none;
+}
+
+.blank-btn {
+@include blank;
+}
+
+.blank-blue{
+@include blank($color:$blue);
+}
+
+@mixin null-btn($mb:0px){
+background: none;
+background-color: transparent;
+border: none;
+padding: 0;
+display: inline-block;
+margin-bottom: $mb;
+cursor: pointer;
+transition: all 180ms $trans;
+
+&:hover{
+    transform: scale(1.12);
+}
+
+
+&.colored{
+    filter: grayscale(0);
+}
+}
+
+.null-btn{
+@include null-btn;
+}
+
+  
+
+$margins: 0,4,6,8,10,12,16,18,20,24,28,32,34,36,38,40;
+
+%margins{
+	@each $margin in $margins {
+		&.m#{$margin} {
+			margin-bottom: #{$margin}px !important;
+		}	
+    
+	}
+}
+
+$spaces: (0,4,6,8,10,12,16,18,10,24,28,32,36,38,40);
+$sides:(top, bottom, left, right);
+
+@each $space in $spaces{
+  @each $side in $sides{
+    .m#{str-slice($side, 0, 1)}#{$space}{
+      margin-#{$side}: #{$space}px !important ;
+    }
+
+    .p#{str-slice($side, 0, 1)}#{$space}{
+      padding-#{$side}: #{$space}px !important ;
+    }
+  }
+}
+
+
+$fw: 100,200,300,400,500,600,700,800,900;
+
+@each $i in $fw {
+  .fw#{$i} {
+    font-weight: #{$i} !important;
+  }	
+}
+
+$fs: 10,12,14,16,18,20,22,24,26;
+
+@each $i in $fs {
+  .fs#{$i} {
+    font-size: #{$i}px !important;
+  }	
+}
+
+$va: 1, 2, 3, 4 , 0, -1, -2, -3, -4;
+
+@each $i in $va {
+  .va#{$i} {
+    vertical-align: #{$i}px !important;
+  }	
+}
+
+
+
+.btn-grp {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    @include phone{
+      flex-direction: column;
+    }
+  
+    &.mt60{
+      margin-top: 60px;
+    }
+  
+    a,button{
+      margin-top: 10px;
+      
+      @include phone{
+        width: auto;
+      }
+  
+      @include phone-m{
+        margin-left: 24px;
+        margin-top: 0;
+      }
+      
+      &:first-child{
+        margin-left: 0;
+  
+        @include phone{
+          margin-top: 0;
+        }
+      }
+    }
+    
+    &.center{
+      justify-content: center;
+    }
+  
+  }
+
+.btns-div{
+  display: flex;
+  margin: 0 -10px;
+
+  @include phone{
+    flex-direction: column;
+  }
+
+  >div{
+    flex: 1 1;
+    padding: 0 5px;
+
+    .btn, .btn-white{
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+@mixin ab{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+@mixin img($ob: contain){
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: $ob;
+}
+
+@mixin str{
+
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  
+}
+
+.str{
+  @include str;
+}
+
+@mixin str-i{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+@mixin no-scrollbar{
+/* width */
+&::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/* Track */
+&::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+&::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+/* Handle on hover */
+&::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+}
+}
+
+%trunc{
+  max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.puple-g{
+  background: linear-gradient(172.61deg, #7625FF 37.56%, #9924E9 94.26%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+
+$icons: (
+  "lifestyle": 56px, "social": 56px,  "intelli": 56px,  "intelli2": 56px,  "purpose": 56px, "purpose2": 56px, "health": 56px, 
+  
+);
+
+@each $icon, $i in $icons {
+  .#{$icon}-icon {
+    width: $i;
+    height: $i;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../images/#{$icon}-icon.svg) no-repeat center;
+  }
+}
+
+.etherium-icon{
+
+  &.white{
+    filter: brightness(10);
+  }
+
+  &.grey{
+    filter: grayscale(1)  brightness(2);
+  }
+
+  &.lg{
+    width: 21px;
+    height: 21px;
+    background-size: contain;
+  }
+
+  &.big{
+    height: 30px;
+    width: 20px;
+    background-size: contain;
+  }
+}
+
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 40px;
+  background-color: $yellow;
+
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+
+  color: $purple;
+}

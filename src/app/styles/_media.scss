@@ -1,0 +1,190 @@
+// $gal: 360;
+// $ip: 380;
+// $phonev: 480;
+// // $phone: 767;
+// $tabv: 992;
+// $tab: 1200;
+// $desk: 1300;
+// $desk-l: 1400;
+
+// $tabn-m: 768px;
+
+
+// $medias: (
+//   ip:380,
+//   phonev:480,
+//   phone:767,
+//   tab:1200,
+//   desk:1300,
+//   desk-l:1400,
+// );
+
+// @mixin rs($device) {
+//   @each $devices, $i in $medias {
+//       @if $device==$devices {
+//           @media (min-width: #{$i}px) {
+//               @content;
+//           }
+//       }
+//   }
+// }
+
+// //Does not work
+// @each $media, $i in $medias{
+//   @mixin #{$phone} {
+//     @media (max-width: #{$i}px) {
+//       @content;
+//     }
+//   }
+// }
+
+// @include rs(mobile){
+
+// }
+
+// @include phone{
+  
+// }
+
+@mixin i5($i:330) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin gal($i:360) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin gal-m($i:361) {
+    @media (min-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin ip($i: 380) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin ip-m($i: 381) {
+    @media (min-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin phonev($i:480) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin phonev-m($i:481) {
+    @media (min-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin phone($i:767) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin phone-m($i:768)  {
+    @media (min-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin tabv($i:992) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin tabv-m($i:993) {
+    @media (min-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin tab($i:1200) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin tab-m($i:1201)  {
+    @media (min-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin desk($i:1300) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  @mixin desk-m($i:1301) {
+    @media (min-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin desk-l($i:1400) {
+    @media (max-width: #{$i}px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin tabn-m {
+    @media (min-width: #{$tabn-m}px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin lap-m {
+    @media (min-width: 1500px) {
+      @content;
+    }
+  }
+  
+  @mixin deskl-m {
+    @media (min-width: 1500px) {
+      @content;
+    }
+  }
+  
+  
+  
+  @mixin air {
+    @media (max-height:800px) and (min-width: 1100px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin height {
+    @media (max-height:660px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin sm {
+    @media (max-height:680px) {
+      @content;
+    }
+  }
+  
+  
+  
